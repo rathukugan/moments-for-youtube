@@ -5,18 +5,18 @@
   "author": "Rathusshan Kuganesan",
   "manifest_version": 2,
   "background": {
-    "scripts": ["background.js"],
+    "scripts": ["scripts/background.js"],
     "persistent": false
   },
   "page_action" :
   {
     "default_title" : "Moments",
-    "default_icon" : "logoRed19.png"
+    "default_icon" : "icons/logoRed19.png"
     //"default_popup" : "popup.html"
   },
   "content_scripts"  : [{ 
                           "matches" : ["*://*.youtube.com/*"], 
-                          "js": ["jquery-2.2.0.min.js", "content.js"], 
+                          "js": ["scripts/jquery-2.2.0.min.js", "scripts/content.js"], 
                           "run_at" : "document_end"
                        }],
   //permissions array
@@ -26,8 +26,8 @@
     "storage"
   ],
   "icons" : {
-    "48" : "logoRed48.png",
-    "128" : "logoRed128.png"
+    "48" : "icons/logoRed48.png",
+    "128" : "icons/logoRed128.png"
   },
-  "web_accessible_resources" : ["test.js"]
+  "web_accessible_resources" : ["scripts/test.js"]
 }
