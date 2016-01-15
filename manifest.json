@@ -2,21 +2,32 @@
   "name": "Moments for Youtube",
   "version": "1.0",
   "description": "Annotate and store your favourite moments of a video as a timestamp.",
+  "author": "Rathusshan Kuganesan",
+  "manifest_version": 2,
   "background": {
     "scripts": ["background.js"],
     "persistent": false
   },
   "page_action" :
   {
-    "default_icon" : "logoRed19.png",
-    "default_title" : "Moments"
+    "default_title" : "Moments",
+    "default_icon" : "logoRed19.png"
+    //"default_popup" : "popup.html"
   },
+  "content_scripts"  : [{ 
+                          "matches" : ["*://*.youtube.com/*"], 
+                          "js": ["jquery-2.2.0.min.js", "content.js"], 
+                          "run_at" : "document_end"
+                       }],
+  //permissions array
   "permissions" : [
-    "activeTab"
+    "declarativeContent",
+    "activeTab",
+    "storage"
   ],
   "icons" : {
     "48" : "logoRed48.png",
     "128" : "logoRed128.png"
   },
-  "manifest_version": 2
+  "web_accessible_resources" : ["test.js"]
 }
