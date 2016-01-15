@@ -1,0 +1,22 @@
+{
+  "name": "Moments for Youtube",
+  "version": "1.0",
+  "description": "Annotate and store your favourite moments of a video as a timestamp.",
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "page_action" :
+  {
+    "default_icon" : "logoRed19.png",
+    "default_title" : "Moments"
+  },
+  "permissions" : [
+    "activeTab"
+  ],
+  "icons" : {
+    "48" : "logoRed48.png",
+    "128" : "logoRed128.png"
+  },
+  "manifest_version": 2
+}
