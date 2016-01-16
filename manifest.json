@@ -11,8 +11,8 @@
   "page_action" :
   {
     "default_title" : "Moments",
-    "default_icon" : "icons/logoRed19.png"
-    //"default_popup" : "popup.html"
+    "default_icon" : "icons/logoRed19.png",
+    "default_popup" : "popup.html"
   },
   "content_scripts"  : [{ 
                           "matches" : ["*://*.youtube.com/*"], 
