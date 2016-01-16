@@ -29,5 +29,5 @@
     "48" : "icons/logoRed48.png",
     "128" : "icons/logoRed128.png"
   },
-  "web_accessible_resources" : ["scripts/test.js"]
+  "web_accessible_resources" : ["scripts/youtube-player-control.js"] //injection script
 }

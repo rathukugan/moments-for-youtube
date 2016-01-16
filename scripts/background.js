@@ -21,6 +21,14 @@ chrome.runtime.onInstalled.addListener(function() {
   });
 });
 
+chrome.runtime.onMessage.addListener(
+  function(request, sender, sendResponse) {
+    if (request.timeStamp.charAt(0) == "t")
+      //timestamp has a header of "time" for now.
+      //figure out a better way
+      alert(request.timeStamp);
+  });
+
 
 /*
 //Test content script
