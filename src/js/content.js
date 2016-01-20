@@ -31,7 +31,7 @@ chrome.runtime.onMessage.addListener(
         	//second
         	;(function(){ //run injection script
 				var s = document.createElement('script');
-				s.src = chrome.extension.getURL('scripts/youtube-player-control.js');
+				s.src = chrome.extension.getURL('src/js/youtube-player-control.js');
 				s.onload = function() { this.parentNode.removeChild(this); };
 				(document.head||document.documentElement).appendChild(s);
 			})();
