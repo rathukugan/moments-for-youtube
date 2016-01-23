@@ -22,7 +22,7 @@ chrome.runtime.onMessage.addListener(
 		  if (event.data.type && (event.data.type == "FROM_PAGE")) {
 		  	//fourth
 		  	//send to background script
-		  	chrome.runtime.sendMessage({timeStamp: "time " + event.data.text}, function(response) {
+		  	chrome.runtime.sendMessage({timeStamp: "t=" + event.data.text}, function(response) {
 			});
 		  }
 		}, false);

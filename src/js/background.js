@@ -10,7 +10,7 @@ chrome.runtime.onInstalled.addListener(function() {
         // That fires when a page's URL contains 'youtube.com'...
         conditions: [
           new chrome.declarativeContent.PageStateMatcher({
-            pageUrl: { urlContains: 'youtube.com' },
+            pageUrl: { urlContains: 'youtube.com' }, //add /watch?v=  here
           })
         ],
         // And shows the extension's page action.
@@ -21,12 +21,24 @@ chrome.runtime.onInstalled.addListener(function() {
   });
 });
 
+
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
-    if (request.timeStamp.charAt(0) == "t")
-      //timestamp has a header of "time" for now.
-      //figure out a better way
-      alert(request.timeStamp);
+    //regex match for valid youtube stamp from content script
+    var pattern = /t=(\d*\dh)*(\d*\d)m(\d\d)s/i;
+
+    if (pattern.test(request.timeStamp))
+
+      chrome.tabs.query({
+        active: true,               // Select active tabs
+        lastFocusedWindow: true     // In the current window
+        }, function(array_of_Tabs) {
+            // Since there can only be one active tab in one active window, 
+            //  the array has only one element
+            var tab = array_of_Tabs[0];
+            var url = tab.url;
+            alert(url + "&" + request.timeStamp);
+        });
   });
 
 
