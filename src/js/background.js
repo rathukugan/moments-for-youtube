@@ -7,10 +7,10 @@ chrome.runtime.onInstalled.addListener(function() {
     // With a new rule ...
     chrome.declarativeContent.onPageChanged.addRules([
       {
-        // That fires when a page's URL contains 'youtube.com'...
+        // That fires when a page's URL is a YouTube video (not just YouTube homepage)
         conditions: [
           new chrome.declarativeContent.PageStateMatcher({
-            pageUrl: { urlContains: 'youtube.com' }, //add /watch?v=  here
+            pageUrl: { urlContains: 'youtube.com/watch?v=' },
           })
         ],
         // And shows the extension's page action.
