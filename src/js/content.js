@@ -18,7 +18,6 @@ window.addEventListener("message", function(event) {
     return;
 
   if (event.data.type && (event.data.type == "FROM_PAGE")) {
-  	//fourth
   	//send to background script
   	chrome.runtime.sendMessage({timeStamp: "t=" + event.data.text}, function(response) {});
   }
@@ -26,7 +25,7 @@ window.addEventListener("message", function(event) {
 
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
-        if (request.greeting == "hello") {
+        if (request.greeting == "requestStamp") {
     		var s = document.createElement('script');
 			s.src = chrome.extension.getURL('src/js/youtube-player-control.js');
 			s.onload = function() { this.parentNode.removeChild(this); };

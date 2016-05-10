@@ -1,5 +1,3 @@
-//Starter code pulled from Google's pageaction_by_url extension example.
-
 // When the extension is installed or upgraded ...
 chrome.runtime.onInstalled.addListener(function() {  
   // Replace all rules ...
@@ -40,11 +38,3 @@ chrome.runtime.onMessage.addListener(
         });
     }
   });
-
-
-/*
-//Test content script
-chrome.pageAction.onClicked.addListener(function(tab) {  
-  chrome.tabs.executeScript(null, {file: "content.js"});
-});
-*/
