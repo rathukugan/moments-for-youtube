@@ -27,8 +27,7 @@ chrome.runtime.onMessage.addListener(
     //regex match for valid youtube stamp from content script
     var pattern = /t=(\d*\dh)*(\d*\d)m(\d\d)s/i;
 
-    if (pattern.test(request.timeStamp))
-
+    if (pattern.test(request.timeStamp)) {
       chrome.tabs.query({
         active: true,               // Select active tabs
         lastFocusedWindow: true     // In the current window
@@ -39,6 +38,7 @@ chrome.runtime.onMessage.addListener(
             var url = tab.url;
             alert(url + "&" + request.timeStamp);
         });
+    }
   });
 
 

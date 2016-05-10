@@ -11,31 +11,26 @@
 })();
 */
 
+//Only need one listener, to receive timestamps and send to bg
+window.addEventListener("message", function(event) {
+  // We only accept messages from ourselves
+  if (event.source != window)
+    return;
+
+  if (event.data.type && (event.data.type == "FROM_PAGE")) {
+  	//fourth
+  	//send to background script
+  	chrome.runtime.sendMessage({timeStamp: "t=" + event.data.text}, function(response) {});
+  }
+}, false);
+
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
-    	//first
-    	window.addEventListener("message", function(event) {
-		  // We only accept messages from ourselves
-		  if (event.source != window)
-		    return;
-
-		  if (event.data.type && (event.data.type == "FROM_PAGE")) {
-		  	//fourth
-		  	//send to background script
-		  	chrome.runtime.sendMessage({timeStamp: "t=" + event.data.text}, function(response) {
-			});
-		  }
-		}, false);
-
         if (request.greeting == "hello") {
-        	//second
-        	;(function(){ //run injection script
-				var s = document.createElement('script');
-				s.src = chrome.extension.getURL('src/js/youtube-player-control.js');
-				s.onload = function() { this.parentNode.removeChild(this); };
-				(document.head||document.documentElement).appendChild(s);
-			})();
-		//third
+    		var s = document.createElement('script');
+			s.src = chrome.extension.getURL('src/js/youtube-player-control.js');
+			s.onload = function() { this.parentNode.removeChild(this); };
+			(document.head||document.documentElement).appendChild(s);
             
         //sendResponse({farewell: 'goodbye'});
         }
