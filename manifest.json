@@ -29,5 +29,5 @@
     "48" : "assets/icons/logoRed48.png",
     "128" : "assets/icons/logoRed128.png"
   },
-  "web_accessible_resources" : ["src/js/youtube-player-control.js", "src/js/popup.js"] //injection script
+  "web_accessible_resources" : ["src/js/popup.js"] //injection scripts
 }
